@@ -1,1 +1,22 @@
-# C-program-1
+
+#include <stdio.h>
+#include <limits.h>
+int main() {
+    int a[100], n, i;
+    int largest = INT_MIN, second = INT_MIN;
+    scanf("%d", &n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+        if (a[i] > largest) {
+            second = largest;
+            largest = a[i];
+        } else if (a[i] > second && a[i] < largest) {
+            second = a[i];
+        }
+    }
+    if (second == INT_MIN)
+        printf("Second largest does not exist");
+    else
+        printf("%d", second);
+    return 0;
+}
